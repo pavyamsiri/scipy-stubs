@@ -1,8 +1,98 @@
 # This file is not meant for public use and will be removed in SciPy v2.0.0.
 # Use the `scipy.spatial` namespace for importing the functions
 # included below.
-from . import _ckdtree
-from ._ckdtree import *
 
-__all__: list[str] = []
-__all__ += _ckdtree.__all__
+from typing_extensions import Self, deprecated
+
+__all__: list[str] = ["cKDTree"]
+
+@deprecated("will be removed in SciPy v2.0.0")
+class cKDTree:
+    @property
+    def n(self) -> object: ...
+    @property
+    def m(self) -> object: ...
+    @property
+    def leafsize(self) -> object: ...
+    @property
+    def size(self) -> object: ...
+    @property
+    def tree(self) -> object: ...
+    @property
+    def data(self) -> object: ...
+    @property
+    def maxes(self) -> object: ...
+    @property
+    def mins(self) -> object: ...
+    @property
+    def indices(self) -> object: ...
+    @property
+    def boxsize(self) -> object: ...
+    def __init__(
+        self,
+        data: object,
+        leafsize: int = ...,
+        compact_nodes: object = ...,
+        copy_data: object = ...,
+        balanced_tree: object = ...,
+        boxsize: None = ...,
+    ) -> None: ...
+    def __new__(
+        cls,
+        data: object,
+        leafsize: int = ...,
+        compact_nodes: object = ...,
+        copy_data: object = ...,
+        balanced_tree: object = ...,
+        boxsize: None = ...,
+    ) -> Self: ...
+    def query(
+        self,
+        x: object,
+        k: object = ...,
+        eps: object = ...,
+        p: object = ...,
+        distance_upper_bound: object = ...,
+        workers: int | None = ...,
+    ) -> object: ...
+    def query_ball_point(
+        self,
+        x: object,
+        r: object,
+        p: object = ...,
+        eps: object = ...,
+        workers: int | None = ...,
+        return_sorted: bool | None = ...,
+        return_length: object = ...,
+    ) -> object: ...
+    def query_ball_tree(
+        self,
+        other: object,
+        r: object,
+        p: object = ...,
+        eps: object = ...,
+    ) -> object: ...
+    def query_pairs(
+        self,
+        r: object,
+        p: object = ...,
+        eps: object = ...,
+        output_type: object = ...,
+    ) -> object: ...
+    def count_neighbors(
+        self,
+        other: object,
+        r: object,
+        p: object = ...,
+        weights: object = ...,
+        cumulative: object = ...,
+    ) -> object: ...
+    def sparse_distance_matrix(
+        self,
+        other: object,
+        max_distance: object,
+        p: object = ...,
+        output_type: object = ...,
+    ) -> object: ...
+    def __reduce_cython__(self, *args: object, **kwargs: object) -> object: ...
+    def __setstate_cython__(self, *args: object, **kwargs: object) -> object: ...
