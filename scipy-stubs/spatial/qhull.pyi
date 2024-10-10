@@ -5,6 +5,7 @@ from typing_extensions import deprecated
 
 __all__: list[str] = ["ConvexHull", "Delaunay", "HalfspaceIntersection", "QhullError", "Voronoi", "tsearch"]
 
+@deprecated("will be removed in SciPy v2.0.0")
 class QhullError(RuntimeError): ...
 
 @deprecated("will be removed in SciPy v2.0.0")
@@ -14,6 +15,7 @@ class _QhullUser:
     def _update(self, qhull: object) -> None: ...
     def _add_points(self, points: object, restart: object = ..., interior_point: object = ...) -> None: ...
 
+@deprecated("will be removed in SciPy v2.0.0")
 class ConvexHull(_QhullUser):
     def __init__(self, points: object, incremental: object = ..., qhull_options: object = ...) -> None: ...
     def _update(self, qhull: object) -> None: ...
@@ -23,6 +25,7 @@ class ConvexHull(_QhullUser):
     @property
     def vertices(self) -> object: ...
 
+@deprecated("will be removed in SciPy v2.0.0")
 class Delaunay(_QhullUser):
     def __init__(
         self, points: object, furthest_site: object = ..., incremental: bool = ..., qhull_options: object = ...
@@ -43,6 +46,7 @@ class Delaunay(_QhullUser):
     def plane_distance(self, xi: object) -> object: ...
     def lift_points(self, x: object) -> object: ...
 
+@deprecated("will be removed in SciPy v2.0.0")
 class HalfspaceIntersection(_QhullUser):
     def __init__(
         self, halfspaces: object, interior_point: object, incremental: object = ..., qhull_options: object = ...
@@ -54,6 +58,7 @@ class HalfspaceIntersection(_QhullUser):
     @property
     def dual_vertices(self) -> object: ...
 
+@deprecated("will be removed in SciPy v2.0.0")
 class Voronoi(_QhullUser):
     def __init__(
         self, points: object, furthest_site: object = ..., incremental: object = ..., qhull_options: object = ...
